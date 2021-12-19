@@ -20,16 +20,20 @@ import com.google.android.gms.tasks.TaskExecutors
 import com.google.mlkit.common.MlKitException
 import com.google.mlkit.vision.face.Face
 import dev.tim.sdv.ml.face.lib.R
+import dev.tim.sdv.ml.face.lib.detector.FaceDetectorProcessor
+import dev.tim.sdv.ml.face.lib.info.SourceInfo
+import dev.tim.sdv.ml.face.lib.mvp.base.presenter.PresenterFactory
+import dev.tim.sdv.ml.face.lib.mvp.base.view.BaseMasksActivity
 import dev.tim.sdv.ml.face.lib.mvp.photo.PhotoActivity
 import dev.tim.sdv.ml.face.lib.mvp.photo.PhotoActivity.Companion.EXTRA_PHOTO_URI
 import kotlinx.android.synthetic.main.activity_camera.*
 
-class CameraActivity : dev.tim.sdv.ml.face.lib.mvp.base.view.BaseMasksActivity<CameraContract.Presenter, CameraContract.View>(),
+class CameraActivity : BaseMasksActivity<CameraContract.Presenter, CameraContract.View>(),
     CameraContract.View {
 
     override val logTag: String = "CameraActivity"
 
-    override fun getPresenterFactory(): dev.tim.sdv.ml.face.lib.mvp.base.presenter.PresenterFactory<CameraContract.View, CameraContract.Presenter> {
+    override fun getPresenterFactory(): PresenterFactory<CameraContract.View, CameraContract.Presenter> {
         return CameraPresenterFactory
     }
 
@@ -95,7 +99,7 @@ class CameraActivity : dev.tim.sdv.ml.face.lib.mvp.base.view.BaseMasksActivity<C
     }
 
     private fun startCamera(
-        setSourceInfo: (dev.tim.sdv.ml.face.lib.info.SourceInfo) -> Unit,
+        setSourceInfo: (SourceInfo) -> Unit,
         onFacesDetected: (List<Face>) -> Unit
     ) {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
@@ -135,11 +139,11 @@ class CameraActivity : dev.tim.sdv.ml.face.lib.mvp.base.view.BaseMasksActivity<C
 
     private fun getImageAnalysisUseCase(
         lens: Int,
-        setSourceInfo: (dev.tim.sdv.ml.face.lib.info.SourceInfo) -> Unit,
+        setSourceInfo: (SourceInfo) -> Unit,
         onFacesDetected: (List<Face>) -> Unit
     ): ImageAnalysis? {
         imageProcessor = try {
-            dev.tim.sdv.ml.face.lib.detector.FaceDetectorProcessor()
+            FaceDetectorProcessor()
         } catch (e: Exception) {
             Log.e(logTag, "Can not create image processor", e)
             return null

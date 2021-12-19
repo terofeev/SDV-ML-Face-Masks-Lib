@@ -3,6 +3,16 @@
     package="dev.tim.sdv.ml.face.lib">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application>
+        <activity
+            android:name="dev.tim.sdv.ml.face.lib.mvp.camera.CameraActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity android:name="dev.tim.sdv.ml.face.lib.mvp.photo.PhotoActivity" />
+    </application>
 
 </manifest>

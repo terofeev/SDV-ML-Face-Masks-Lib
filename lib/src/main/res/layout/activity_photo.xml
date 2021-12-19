@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2F350C">
+
+    <ImageView
+        android:id="@+id/photoImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/photo_viewer_content_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@drawable/deer_face"/>
+
+    <dev.tim.sdv.ml.face.lib.overlay.OverlayView
+        android:id="@+id/overlayView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/bottomView"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="#80A5B83A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/maskDescriptionShapeView"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginHorizontal="80dp"
+        android:background="@drawable/mask_description_shape"
+        app:layout_constraintBottom_toBottomOf="@id/bottomView"
+        app:layout_constraintEnd_toEndOf="@id/bottomView"
+        app:layout_constraintStart_toStartOf="@id/bottomView"
+        app:layout_constraintTop_toTopOf="@id/bottomView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/maskSelectorRecyclerView"
+        android:layout_width="@dimen/mask_selector_container_width"
+        android:layout_height="@dimen/mask_selector_container_height"
+        app:layout_constraintBottom_toBottomOf="@id/selectedMaskView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/selectedMaskView"
+        tools:itemCount="3"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_mask"
+        tools:orientation="horizontal" />
+
+    <View
+        android:id="@+id/selectedMaskView"
+        android:layout_width="@dimen/mask_selector_width"
+        android:layout_height="@dimen/mask_selector_height"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/mask_selector_shape"
+        app:layout_constraintBottom_toTopOf="@id/bottomView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/maskTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/maskDescriptionShapeView"
+        app:layout_constraintStart_toStartOf="@id/maskDescriptionShapeView"
+        app:layout_constraintTop_toTopOf="@id/maskDescriptionShapeView"
+        tools:text="Selected mask" />
+
+    <TextView
+        android:id="@+id/maskSubTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#E1D6D6"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/maskDescriptionShapeView"
+        app:layout_constraintEnd_toEndOf="@id/maskDescriptionShapeView"
+        app:layout_constraintStart_toStartOf="@id/maskDescriptionShapeView"
+        app:layout_constraintTop_toBottomOf="@id/maskTitleText"
+        tools:text="by SDV team" />
+
+    <ImageView
+        android:id="@+id/imageCompletedImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/image_completed_content_description"
+        android:src="@drawable/ic_done"
+        app:layout_constraintBottom_toBottomOf="@id/bottomView"
+        app:layout_constraintEnd_toEndOf="@id/bottomView"
+        app:layout_constraintStart_toEndOf="@id/maskDescriptionShapeView"
+        app:layout_constraintTop_toTopOf="@id/bottomView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="mask_content_description">Mask image view</string>
+    <string name="gallery_picker_content_description">Mask image view</string>
+    <string name="image_completed_content_description">Image completed image view</string>
+    <string name="photo_viewer_content_description">Photo viewer</string>
+
+    <string name="mask_deer_face">Deer face</string>
+    <string name="mask_shower_hat">Shower hat</string>
+    <string name="mask_deer_horns">Deer horns</string>
+    <string name="mask_carnival_mask">Carnival mask</string>
+    <string name="mask_bear_nose_ears">Bear nose ears</string>
+    <string name="mask_irish_hat">Irish hat</string>
+
+    <string name="mask_author">by SDV team</string>
+</resources>

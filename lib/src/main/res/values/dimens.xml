@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mask_selector_width">90dp</dimen>
+    <dimen name="mask_selector_height">90dp</dimen>
+    <dimen name="mask_selector_stroke_width">3dp</dimen>
+    <dimen name="mask_selector_stroke_dash_width">3dp</dimen>
+    <dimen name="mask_selector_stroke_dash_gap">6dp</dimen>
+
+    <dimen name="mask_selector_item_width">90dp</dimen>
+    <dimen name="mask_selector_item_height">90dp</dimen>
+
+    <dimen name="mask_selector_container_width">270dp</dimen>
+    <dimen name="mask_selector_container_height">@dimen/mask_selector_item_height</dimen>
+</resources>

@@ -53,7 +53,7 @@ class PhotoActivity : BaseMasksActivity<PhotoContract.Presenter, PhotoContract.V
         Glide.with(photoImageView)
             .asBitmap()
             .load(photoUri)
-            .override(640, 480)
+            .override(480, 640)
             .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     glideBitmap = resource
